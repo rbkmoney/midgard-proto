@@ -13,9 +13,8 @@ struct ClearingData {
 }
 
 service ClearingAdapterRequest {
-
+    /** Отправка данных в клиринговый адаптер банка */
     base.Int SendClearingData(1: ClearingData clearingData) throws (1: SendClearingDataException ex1)
-
 }
 
 exception SendClearingDataException {}

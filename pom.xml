@@ -67,8 +67,8 @@
                         <configuration>
                             <relocations>
                                 <relocation>
-                                    <pattern>com.rbkmoney.xrates</pattern>
-                                    <shadedPattern>com.rbkmoney.xrates.v${commit.number}</shadedPattern>
+                                    <pattern>com.rbkmoney.midgard</pattern>
+                                    <shadedPattern>com.rbkmoney.midgard.v${commit.number}</shadedPattern>
                                 </relocation>
                             </relocations>
                             <shadedArtifactAttached>true</shadedArtifactAttached>
