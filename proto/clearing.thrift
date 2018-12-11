@@ -8,7 +8,7 @@ exception NoClearingEvent {}
 /** список возможных команд для клирингвого сервиса */
 enum ClearingCommand {
     /** Запуск клиринга */
-    START_CLEARING,
+    START_CLEARING
     /** Создание отчета по клиринговым операциям */
     CREATE_REPORT
 }
