@@ -3,24 +3,16 @@ namespace erlang midgard
 
 include "base.thrift"
 
-exception NoClearingEvent {}
-
-/** список возможных команд для клирингвого сервиса */
-enum ClearingCommand {
-    /** Запуск клиринга */
-    START_CLEARING
-    /** Создание отчета по клиринговым операциям */
-    CREATE_REPORT
-}
-
+/** Команда, поступающая от внешнего сервиса */
 struct ClearingEvent {
     1: required base.EventID          event_id
-    2: required ClearingCommand       command
+    2: required base.ClearingCommand  command
     3: required base.Bank             bank
     4: optional base.Timestamp        date_from
     5: optional base.Timestamp        date_to
 }
 
+/** Ответ от сервиса клиринга */
 struct ClearingStateResponse {
     1: required base.EventID          event_id
     2: required base.ClearingState    clearing_state
@@ -28,9 +20,12 @@ struct ClearingStateResponse {
     4: optional base.ClearingID       clearing_id
 }
 
-service Clearing {
+/** Интерфейс взаимодействия между внешней системой и клиринговым сервисом */
+service ClearingServiceOuterInf {
     /** Запуск события в клиринговом сервисе */
     void StartClearingEvent(1: ClearingEvent clearingEvent) throws ()
     /** Получение статуса клирингового события */
     ClearingStateResponse GetClearingEventState(1: base.EventID event_id) throws (1: NoClearingEvent ex1)
 }
+
+exception NoClearingEvent {}
