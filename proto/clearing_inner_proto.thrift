@@ -23,22 +23,22 @@ struct ResponseClearingData {
     3: optional list<ResponseTransaction> response_transactions
 }
 
+exception ClearingAdapterException {}
+
+exception ClearingServiceException {}
+
 /** Интерфейс взаимодействия с клиринговым адаптером банка */
 service ClearingAdapterInf {
     /** Команда на запуск клирингового эвента на стороне адаптера */
-    base.Int StartClearingEvent(1: base.ClearingID clearing_id) throws()
+    base.Int StartClearingEvent(1: base.ClearingID clearing_id) throws(1: ClearingAdapterException ex1)
     /** Получение статуса клирингового события от адаптера */
-    base.ClearingState GetClearingState(1: base.ClearingID clearing_id) throws (1: AdapterResponseException ex1)
+    base.ClearingState GetClearingState(1: base.ClearingID clearing_id) throws (1: ClearingAdapterException ex1)
     /** Получение ответа по клиринговому эвенту от банка */
-    ResponseClearingData GetBankResponse(1: base.ClearingID clearing_id) throws()
+    ResponseClearingData GetBankResponse(1: base.ClearingID clearing_id) throws(1: ClearingAdapterException ex1)
 }
 
 /** Интерфейс взаимодействия с клиринговым сервисом */
 service ClearingServiceInnerInf {
     /** Получение данных из клирингового сервиса */
-    base.Int GetClearingData(1: RequestClearingData clearingData) throws (1: SendClearingDataException ex1)
+    base.Int GetClearingData(1: RequestClearingData clearingData) throws (1: ClearingServiceException ex1)
 }
-
-exception AdapterResponseException {}
-
-exception SendClearingDataException {}

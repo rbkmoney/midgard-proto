@@ -20,6 +20,8 @@ struct ClearingStateResponse {
     4: optional base.ClearingID       clearing_id
 }
 
+exception NoClearingEvent {}
+
 /** Интерфейс взаимодействия между внешней системой и клиринговым сервисом */
 service ClearingServiceOuterInf {
     /** Запуск события в клиринговом сервисе */
@@ -27,5 +29,3 @@ service ClearingServiceOuterInf {
     /** Получение статуса клирингового события */
     ClearingStateResponse GetClearingEventState(1: base.EventID event_id) throws (1: NoClearingEvent ex1)
 }
-
-exception NoClearingEvent {}
