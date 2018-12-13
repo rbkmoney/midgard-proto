@@ -6,7 +6,6 @@ include "base.thrift"
 /** Команда, поступающая от внешнего сервиса */
 struct ClearingEvent {
     1: required base.EventID          event_id
-    2: required base.ClearingCommand  command
     3: required base.Bank             bank
     4: optional base.Timestamp        date_from
     5: optional base.Timestamp        date_to
