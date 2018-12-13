@@ -23,7 +23,7 @@ enum Bank {
 }
 
 /** Состояние клирингового события */
-enum ClearingState {
+enum ClearingEventState {
     /** Клиринговое событие создано */
     CREATED
     /** Клиринговое событие запущено */

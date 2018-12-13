@@ -12,11 +12,11 @@ struct ClearingEvent {
 }
 
 /** Ответ от сервиса клиринга */
-struct ClearingStateResponse {
-    1: required base.EventID          event_id
-    2: required base.ClearingState    clearing_state
-    3: optional base.Bank             bank
-    4: optional base.ClearingID       clearing_id
+struct ClearingEventStateResponse {
+    1: required base.EventID               event_id
+    2: required base.ClearingEventState    clearing_state
+    3: optional base.Bank                  bank
+    4: optional base.ClearingID            clearing_id
 }
 
 exception NoClearingEvent {}
@@ -26,5 +26,5 @@ service ClearingServiceOuterInf {
     /** Запуск события в клиринговом сервисе */
     void StartClearingEvent(1: ClearingEvent clearingEvent) throws ()
     /** Получение статуса клирингового события */
-    ClearingStateResponse GetClearingEventState(1: base.EventID event_id) throws (1: NoClearingEvent ex1)
+    ClearingEventStateResponse GetClearingEventState(1: base.EventID event_id) throws (1: NoClearingEvent ex1)
 }

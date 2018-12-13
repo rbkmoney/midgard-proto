@@ -10,7 +10,7 @@ struct FailureTransactionData {
 
 struct FailureClearingData {
     1: required base.ClearingID              clearing_ig
-    2: required base.ClearingState           clearing_state
+    2: required base.ClearingEventState      clearing_state
     3: optional list<FailureTransactionData> failure_transactions
 }
 
@@ -32,7 +32,7 @@ service ClearingAdapterInf {
     /** Команда на запуск клирингового эвента на стороне адаптера */
     base.Int StartClearingEvent(1: base.ClearingID clearing_id) throws(1: ClearingAdapterException ex1)
     /** Получение статуса клирингового события от адаптера */
-    base.ClearingState GetClearingState(1: base.ClearingID clearing_id) throws (1: ClearingAdapterException ex1)
+    base.ClearingEventState GetClearingState(1: base.ClearingID clearing_id) throws (1: ClearingAdapterException ex1)
     /** Получение ответа по клиринговому эвенту от банка */
     FailureClearingData GetBankResponse(1: base.ClearingID clearing_id) throws(1: ClearingAdapterException ex1)
 }
