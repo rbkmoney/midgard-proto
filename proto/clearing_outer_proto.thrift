@@ -3,19 +3,21 @@ namespace erlang midgard
 
 include "base.thrift"
 
+typedef string ProviderID
+
 /** Команда, поступающая от внешнего сервиса */
 struct ClearingEvent {
     1: required base.EventID          event_id
-    3: required base.Bank             bank
-    4: optional base.Timestamp        date_from
-    5: optional base.Timestamp        date_to
+    2: required ProviderID            provider_id
+    3: optional base.Timestamp        date_from
+    4: optional base.Timestamp        date_to
 }
 
 /** Ответ от сервиса клиринга */
 struct ClearingEventStateResponse {
     1: required base.EventID               event_id
     2: required base.ClearingEventState    clearing_state
-    3: optional base.Bank                  bank
+    3: optional ProviderID                 provider_id
     4: optional base.ClearingID            clearing_id
 }
 

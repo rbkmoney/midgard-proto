@@ -15,9 +15,8 @@ struct FailureClearingData {
 }
 
 struct ClearingDataPackage {
-    1: required base.Bank                bank
     2: required base.ClearingID          clearing_id
-    3: required base.Long                package_number
+    3: required i64                      package_number
     4: required bool                     final_package
     5: required list<base.Transaction>   transactions
     6: required list<base.Merchant>      merchants
@@ -30,7 +29,9 @@ exception ClearingServiceException {}
 /** Интерфейс взаимодействия с клиринговым адаптером банка */
 service ClearingAdapterInf {
     /** Команда на запуск клирингового эвента на стороне адаптера */
-    base.Int StartClearingEvent(1: base.ClearingID clearing_id) throws(1: ClearingAdapterException ex1)
+    void StartClearingEvent(1: base.ClearingID clearing_id) throws(1: ClearingAdapterException ex1)
+    /** Отправка данных в клиринговый адаптер */
+    void SendClearingDataPackage(1: ClearingDataPackage clearing_data_package) throws (1: ClearingAdapterException ex1)
     /** Получение статуса клирингового события от адаптера */
     base.ClearingEventState GetClearingState(1: base.ClearingID clearing_id) throws (1: ClearingAdapterException ex1)
     /** Получение ответа по клиринговому эвенту от банка */
@@ -41,5 +42,5 @@ service ClearingAdapterInf {
 service ClearingServiceInnerInf {
     /** Получение данных из клирингового сервиса */
     ClearingDataPackage GetClearingData(1: base.ClearingID clearing_id,
-                                        2: base.Int package_number) throws (1: ClearingServiceException ex1)
+                                        2: i64 package_number) throws (1: ClearingServiceException ex1)
 }
