@@ -8,8 +8,6 @@ namespace erlang midgard
  * `2016-03-22T06:12:27Z`.
  */
 typedef string Timestamp
-/** ID события на стороне вызывающего сервиса */
-typedef i64 EventID
 /** ID события на стороне сервиса клиринга */
 typedef i64 ClearingID
 /** Сумма транзакции */
@@ -26,8 +24,6 @@ struct Content {
 
 /** Состояние клирингового события */
 enum ClearingEventState {
-    /** Клирингового события не существует */
-    NOT_FOUND
     /** Клиринговое событие создано */
     CREATED
     /** Клиринговое событие запущено */
