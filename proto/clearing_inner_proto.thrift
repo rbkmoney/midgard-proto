@@ -31,7 +31,7 @@ struct ClearingDataPackage {
 exception ClearingAdapterException {}
 
 /** Интерфейс взаимодействия с клиринговым адаптером банка */
-service ClearingAdapterInf {
+service ClearingAdapter {
     /** Команда на запуск клирингового эвента на стороне адаптера */
     void StartClearingEvent(1: base.ClearingID clearing_id) throws(1: ClearingAdapterException ex1)
     /** Отправка данных в клиринговый адаптер */

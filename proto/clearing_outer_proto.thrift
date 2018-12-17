@@ -27,7 +27,7 @@ struct ClearingEventStateResponse {
 exception NoClearingEvent {}
 
 /** Интерфейс взаимодействия между внешней системой и клиринговым сервисом */
-service ClearingServiceOuterInf {
+service ClearingService {
     /** Запуск события в клиринговом сервисе */
     void StartClearingEvent(1: ClearingEvent clearingEvent) throws ()
     /** Получение статуса клирингового события */
