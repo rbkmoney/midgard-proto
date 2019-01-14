@@ -43,9 +43,8 @@ struct GeneralTransactionInfo {
     5: optional i64                fee
     6: optional i64                provider_fee
     7: optional i64                external_fee
-    8: optional string             terminal_id
-    9: optional string             transaction_type
-    10: optional MCC               mcc
+    8: optional string             transaction_type
+    9: optional MCC                mcc
 }
 
 /** Карточные данные в рамках трназакции */
