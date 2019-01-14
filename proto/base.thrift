@@ -40,10 +40,12 @@ struct GeneralTransactionInfo {
     2: required Timestamp          transaction_date
     3: required TransactionAmount  transaction_amount
     4: required string             transaction_currency
-    5: required string             merchant_id
-    6: optional string             terminal_id
-    7: optional string             transaction_type
-    8: optional MCC                mcc
+    5: optional i64                fee
+    6: optional i64                provider_fee
+    7: optional i64                external_fee
+    8: optional string             terminal_id
+    9: optional string             transaction_type
+    10: optional MCC               mcc
 }
 
 /** Карточные данные в рамках трназакции */
@@ -60,14 +62,4 @@ struct Transaction {
     1: required GeneralTransactionInfo general_transaction_info
     2: optional TransactionCardInfo    transaction_card_info
     3: optional Content                additional_transaction_data
-}
-
-/** Описание сущности "Мерчант" */
-struct Merchant {
-    1: required string merchantId
-    2: required string merchantName
-    3: required string merchantAddress
-    4: required string merchantCountry
-    5: required string merchantCity
-    6: required string merchantPostalCode
 }
