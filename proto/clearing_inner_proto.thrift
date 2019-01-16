@@ -6,7 +6,7 @@ include "base.thrift"
 /** Номер переданного пакета данных */
 typedef i64 PackageNumber
 
-/** Идентиффикатор переданного пакета данных */
+/** Идентификатор переданного пакета данных */
 typedef string PackageTagID
 
 typedef string UploadID
