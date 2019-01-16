@@ -43,11 +43,11 @@ exception ClearingAdapterException {}
 /** Интерфейс взаимодействия с клиринговым адаптером банка */
 service ClearingAdapter {
     /** Команда на запуск клирингового эвента на стороне адаптера */
-    UploadID StartClearingEvent(1: base.ClearingID clearing_id) throws(1: ClearingAdapterException ex1)
+    UploadID StartClearingEvent(1: base.ClearingID clearing_id) throws (1: ClearingAdapterException ex1)
     /** Отправка данных в клиринговый адаптер */
     ClearingDataPackageTag SendClearingDataPackage(1: UploadID upload_id, 2: ClearingDataPackage clearing_data_package) throws (1: ClearingAdapterException ex1)
     /** Команда на завершение клирингового эвента на стороне адаптера */
-    void CompleteClearingEvent(1: UploadID upload_id, 2: base.ClearingID clearing_id, 3: list<ClearingDataPackageTag> tags) throws(1: ClearingAdapterException ex1)
+    void CompleteClearingEvent(1: UploadID upload_id, 2: base.ClearingID clearing_id, 3: list<ClearingDataPackageTag> tags) throws (1: ClearingAdapterException ex1)
     /** Получение ответа по клиринговому эвенту от банка */
-    ClearingEventResponse GetBankResponse(1: base.ClearingID clearing_id) throws(1: ClearingAdapterException ex1)
+    ClearingEventResponse GetBankResponse(1: base.ClearingID clearing_id) throws (1: ClearingAdapterException ex1)
 }
