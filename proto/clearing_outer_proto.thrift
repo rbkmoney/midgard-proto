@@ -33,5 +33,5 @@ service ClearingService {
     /** Получение статуса клирингового события */
     ClearingEventStateResponse GetClearingEventState(1: EventID event_id) throws (1: NoClearingEvent ex1)
     /** Повторно отправить клиринговый файл */
-    void ResendClearingFile(1: ClearingEvent clearingEvent) throws (1: NoClearingEvent ex1)
+    void ResendClearingFile(1: EventID event_id) throws (1: NoClearingEvent ex1)
 }
