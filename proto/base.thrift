@@ -34,16 +34,25 @@ enum ClearingEventState {
     FAILED
 }
 
+/** Текущее состояние транзакции */
+enum TransactionState {
+    /** Транзакция обработана */
+    CAPTURED
+    /** Транзакция отменена */
+    CANCELLED
+}
+
 /** Основная информация о транзакции */
 struct GeneralTransactionInfo {
     1: required string             transaction_id
     2: required Timestamp          transaction_date
     3: required TransactionAmount  transaction_amount
     4: required string             transaction_currency
-    5: optional string             transaction_type
-    6: optional MCC                mcc
-    7: required string             invoice_id
-    8: required string             payment_id
+    5: required TransactionState   transaction_state
+    6: optional string             transaction_type
+    7: optional MCC                mcc
+    8: required string             invoice_id
+    9: required string             payment_id
 }
 
 /** Карточные данные в рамках трназакции */
