@@ -4,7 +4,7 @@ namespace erlang midgard
 include "base.thrift"
 
 /** Номер переданного пакета данных */
-typedef i64 PackageNumber
+typedef i32 PackageNumber
 
 /** Идентификатор переданного пакета данных */
 typedef string PackageTagID
