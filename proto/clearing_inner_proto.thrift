@@ -48,7 +48,7 @@ exception ClearingAdapterException {}
 /** Интерфейс взаимодействия с клиринговым адаптером банка */
 service ClearingAdapter {
     /** Команда на запуск клирингового эвента на стороне адаптера */
-    UploadID StartClearingEvent(1: base.ClearingID clearing_id) throws (1: ClearingAdapterException ex1)
+    UploadID StartClearingEvent(1: base.ClearingID clearing_id, 2: base.Timestamp clearing_date) throws (1: ClearingAdapterException ex1)
     /** Отправка данных в клиринговый адаптер */
     ClearingDataResponse SendClearingDataPackage(1: UploadID upload_id, 2: ClearingDataRequest clearing_data_request) throws (1: ClearingAdapterException ex1)
     /** Команда на завершение клирингового эвента на стороне адаптера */
