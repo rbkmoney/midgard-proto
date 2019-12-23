@@ -49,21 +49,21 @@ struct GeneralTransactionInfo {
 
 /** Карточные данные в рамках трназакции */
 struct TransactionCardInfo {
-    1: required string  payer_bank_card_token
-    2: optional string  payer_bank_card_payment_system
-    3: optional string  payer_bank_card_bin
-    4: optional string  payer_bank_card_masked_pan
-    5: optional string  payer_bank_card_token_provider
-    6: optional string  payer_bank_card_cardholder_name
-    7: optional ExpDate payer_bank_card_exp_date
+    1: required string          payer_bank_card_token
+    2: optional string          payer_bank_card_payment_system
+    3: optional string          payer_bank_card_bin
+    4: optional string          payer_bank_card_masked_pan
+    5: optional string          payer_bank_card_token_provider
+    6: optional string          payer_bank_card_cardholder_name
+    7: optional BankCardExpDate payer_bank_card_exp_date
 }
 
 /** Дата экспирации */
-struct ExpDate {
+struct BankCardExpDate {
     /** Месяц 1..12 */
-    1: required i8 month
+    1: required string month
     /** Год 2015..∞ */
-    2: required i16 year
+    2: required string year
 }
 
 /** Тип аккаунта */
