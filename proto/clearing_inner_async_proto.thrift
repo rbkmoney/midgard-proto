@@ -74,5 +74,5 @@ service ClearingAdapterAsync {
 service ClearingClientAsync {
 
     /** Запрос к клиенту на обработку обратного вызова от адаптера */
-    void ProcessClearingAdapterCallback (1: base.CallbackTag tag, 2: ClearingDataResponse clearing_data_response)
+    void ProcessClearingAdapterCallback(1: base.CallbackTag tag, 2: ClearingDataResponse clearing_data_response)
 }
