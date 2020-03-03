@@ -118,19 +118,13 @@ struct Transaction {
     5: optional string                       comment
 }
 
-/** Таймер, определяющий время, в течение которого клиент ожидает обратный запрос */
-union Timer {
-    /** Отрезок времени, после истечения которого таймер остановится */
-    1: Timeout timeout
-}
-
 /**
  * Требование приостановить сессию взаимодействия,
  * с продолжением по факту прихода обратного запроса
  */
 struct SuspendIntent {
     1: required CallbackTag tag
-    2: required Timer timeout
+    2: required Timeout timeout
 }
 
 /** Требование адаптера к клиенту */
